@@ -65,7 +65,9 @@ Token nextToken(std::istream& in)
 std::vector<Token> tokenize(std::istream& in)
 {
     std::vector<Token> tokens;
-    while (!in && in.peek() != '\n')
+
+    //fixed "in" to "in.eof()", because the program takes the end character and while verifing returns error("Invalid charecter")
+    while (!in.eof() && in.peek() != '\n')
     {
         Token t = nextToken(in);
         if (in)
