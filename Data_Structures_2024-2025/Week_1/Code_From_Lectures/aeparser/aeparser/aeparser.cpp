@@ -67,12 +67,21 @@ std::vector<Token> tokenize(std::istream& in)
     std::vector<Token> tokens;
 
     //fixed "in" to "in.eof()", because the program takes the end character and while verifing returns error("Invalid charecter")
-    while (!in.eof() && in.peek() != '\n')
+    while (!in.eof())
     {
-        Token t = nextToken(in);
-        if (in)
+        //removed the "in.peek() == '\n'" condition
+        //added a new if statement which checks if the next character is a new line and continues, taking the following one
+        if (in.peek() == '\n') 
         {
-            tokens.push_back(t);
+            in.get();
+        }
+        else
+        {
+            Token t = nextToken(in);
+            if (in)
+            {
+                tokens.push_back(t);
+            }
         }
     }
     return tokens;
