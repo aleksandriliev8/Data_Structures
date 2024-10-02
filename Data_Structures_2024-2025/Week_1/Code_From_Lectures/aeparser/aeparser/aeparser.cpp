@@ -122,7 +122,7 @@ std::vector<Token> tokenize(std::istream& in)
 
 int main()
 {
-    std::ifstream in("expression.txt");
+    std::ifstream in("expression.exis");
 
     std::vector<Token> tokens = tokenize(in);
     // do something with parsed
