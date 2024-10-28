@@ -21,6 +21,7 @@ int binarySearch(const int* arr, int len, const T& searched)
 		return binarySearch(arr, midIndex, searched);
 }
 
+
 template <typename Iterator, typename T>
 Iterator binarySearch(Iterator left, Iterator right, const T& value)
 {
